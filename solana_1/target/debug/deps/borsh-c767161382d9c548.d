@@ -1,0 +1,11 @@
+C:\Users\somna\Desktop\rust\solana_1\target\debug\deps\libborsh-c767161382d9c548.rmeta: C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\lib.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\de\mod.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\de\hint.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\schema.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\schema_helpers.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\ser\mod.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\ser\helpers.rs
+
+C:\Users\somna\Desktop\rust\solana_1\target\debug\deps\borsh-c767161382d9c548.d: C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\lib.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\de\mod.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\de\hint.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\schema.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\schema_helpers.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\ser\mod.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\ser\helpers.rs
+
+C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\lib.rs:
+C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\de\mod.rs:
+C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\de\hint.rs:
+C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\schema.rs:
+C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\schema_helpers.rs:
+C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\ser\mod.rs:
+C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\borsh-0.10.4\src\ser\helpers.rs:
