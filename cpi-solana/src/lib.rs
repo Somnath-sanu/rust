@@ -4,8 +4,8 @@ use solana_program::{
     entrypoint,
     entrypoint::ProgramResult,
     msg,
+    program_error::ProgramError,
     pubkey::Pubkey,
-    program_error::ProgramError
 };
 
 #[derive(BorshDeserialize, BorshSerialize)]
@@ -18,7 +18,7 @@ entrypoint!(process_instruction);
 pub fn process_instruction(
     program_id: &Pubkey,
     accounts: &[AccountInfo],
-    instruction_data: &[u8],
+    _instruction_data: &[u8],
 ) -> ProgramResult {
     msg!("Contract Started");
 
@@ -28,14 +28,20 @@ pub fn process_instruction(
     // The account must be owned by the program in order to modify its data
     let data_account_owner = data_account.owner;
 
-    if data_account_owner != program_id {
+    msg!("data_account.key {}" , data_account.key);
+    msg!("data_account_owner {}" , data_account_owner); // this logging System program error
+    msg!("program_id {}" , program_id);
+
+    if data_account_owner != program_id { // error giving
       msg!("Account does not have the correct program id");
       return Err(ProgramError::IncorrectProgramId);
     }
 
-    let data_bytes = data_account.data.borrow(); // [u8]
+    let mut data = data_account.data.borrow_mut(); // [u8]
 
-    let mut counter = OnChainData::try_from_slice(&data_bytes)?; 
+    msg!("data is: {:?}", data);
+
+    let mut counter = OnChainData::try_from_slice(&data)?;
 
     if counter.count == 0 {
         counter.count = 1
@@ -43,7 +49,7 @@ pub fn process_instruction(
         counter.count = counter.count * 2; // double
     }
 
-    counter.serialize(&mut *data_account.data.borrow_mut())?;
+    counter.serialize(&mut *data)?;
 
     msg!("Counter updated to {}", counter.count);
 

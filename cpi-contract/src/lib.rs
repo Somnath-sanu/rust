@@ -12,9 +12,9 @@ use solana_program::{
 entrypoint!(process_instruction);
 
 pub fn process_instruction(
-    program_id: &Pubkey,
+    _program_id: &Pubkey,
     accounts: &[AccountInfo],
-    instruction_data: &[u8],
+    _instruction_data: &[u8],
 ) -> ProgramResult {
     msg!("This is a middle Contract. Which also take data account");
 
@@ -22,10 +22,17 @@ pub fn process_instruction(
     let data_account = next_account_info(&mut itr)?;
     let double_contract_address = next_account_info(&mut itr)?;
 
+    if !double_contract_address.executable {
+        msg!("Provided program is not executable");
+        return Err(ProgramError::IncorrectProgramId);
+    }
+
+    msg!("double_contract_address {:?}", double_contract_address);
+
     let instruction = Instruction {
         program_id: *double_contract_address.key,
         accounts: vec![AccountMeta {
-            is_signer: true,
+            is_signer: false,
             is_writable: true,
             pubkey: *data_account.key, // deference means I passed the ownership
         }],
@@ -33,7 +40,10 @@ pub fn process_instruction(
     };
 
     // so here I again cann't use &[*data_account] "*" -> deference so we have to clone it
-    invoke(&instruction, &[data_account.clone()])?;
+    invoke(
+        &instruction,
+        &[data_account.clone(), double_contract_address.clone()],
+    )?;
 
     Ok(())
 }

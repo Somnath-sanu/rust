@@ -27,62 +27,62 @@ const PROGRAM_ID = new PublicKey(
 // my keypair from secret key
 const myPubKeyPair = Keypair.fromSecretKey(mySecretKeyAddress);
 
-// test("Account is initialized", async () => {
-//   // adminAccount = Keypair.generate();
-//   dataAccount = Keypair.generate();
+test("Account is initialized", async () => {
+  // adminAccount = Keypair.generate();
+  dataAccount = Keypair.generate();
 
-//   const connection = new Connection(
-//     "https://devnet.helius-rpc.com/?api-key=d59db555-106e-4713-8e4c-f55e5773da9d"
-//   );
+  const connection = new Connection(
+    `https://devnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY}`
+  );
 
-//   // const txt = await connection.requestAirdrop(
-//   //   adminAccount.publicKey,
-//   //   1 * LAMPORTS_PER_SOL
-//   // );
+  // const txt = await connection.requestAirdrop(
+  //   adminAccount.publicKey,
+  //   1 * LAMPORTS_PER_SOL
+  // );
 
-//   // console.log("Airdrop transaction signature", txt);
+  // console.log("Airdrop transaction signature", txt);
 
-//   const latestBlockhash = await connection.getLatestBlockhash();
+  const latestBlockhash = await connection.getLatestBlockhash();
 
-//   // await connection.confirmTransaction({
-//   //   blockhash: latestBlockhash.blockhash,
-//   //   lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
-//   //   signature: txt,
-//   // });
+  // await connection.confirmTransaction({
+  //   blockhash: latestBlockhash.blockhash,
+  //   lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
+  //   signature: txt,
+  // });
 
-//   const dataAccountInfo = await connection.getAccountInfo(myPubKey);
-//   console.log("Account Info: ", dataAccountInfo);
+  const dataAccountInfo = await connection.getAccountInfo(myPubKey);
+  console.log("Account Info: ", dataAccountInfo);
 
-//   // airdroppedBalance done
+  // airdroppedBalance done
 
-//   const lamports = await connection.getMinimumBalanceForRentExemption(
-//     COUNTER_SIZE
-//   );
+  const lamports = await connection.getMinimumBalanceForRentExemption(
+    COUNTER_SIZE
+  );
 
-//   const instruction = SystemProgram.createAccount({
-//     fromPubkey: myPubKey,
-//     newAccountPubkey: dataAccount.publicKey,
-//     lamports,
-//     space: COUNTER_SIZE,
-//     programId: PROGRAM_ID,
-//   });
+  const instruction = SystemProgram.createAccount({
+    fromPubkey: myPubKey,
+    newAccountPubkey: dataAccount.publicKey,
+    lamports,
+    space: COUNTER_SIZE,
+    programId: PROGRAM_ID,
+  });
 
-//   const createDataAccountTransaction = new Transaction();
+  const createDataAccountTransaction = new Transaction();
 
-//   createDataAccountTransaction.add(instruction);
+  createDataAccountTransaction.add(instruction);
 
-//   const signature = await connection.sendTransaction(
-//     createDataAccountTransaction,
-//     [myPubKeyPair, dataAccount]
-//   );
+  const signature = await connection.sendTransaction(
+    createDataAccountTransaction,
+    [myPubKeyPair, dataAccount]
+  );
 
-//   await connection.confirmTransaction({
-//     ...latestBlockhash,
-//     signature: signature,
-//   });
+  await connection.confirmTransaction({
+    ...latestBlockhash,
+    signature: signature,
+  });
 
-//   console.log("Data account ", dataAccount.publicKey.toBase58());
-// });
+  console.log("Data account ", dataAccount.publicKey.toBase58());
+});
 
 //* Now get the counter value from the account *//
 
@@ -92,7 +92,7 @@ const dataAccountPubkey = new PublicKey(
 
 test("Get the counter value from the account", async () => {
   const connection = new Connection(
-    "https://devnet.helius-rpc.com/?api-key=d59db555-106e-4713-8e4c-f55e5773da9d"
+    `https://devnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY}`
   );
 
   const dataAccountInfo = await connection.getAccountInfo(dataAccountPubkey);
