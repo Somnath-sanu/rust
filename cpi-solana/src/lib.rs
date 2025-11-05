@@ -33,7 +33,7 @@ pub fn process_instruction(
       return Err(ProgramError::IncorrectProgramId);
     }
 
-    let data_bytes = data_account.data.borrow(); // &[u8]
+    let data_bytes = data_account.data.borrow(); // [u8]
 
     let mut counter = OnChainData::try_from_slice(&data_bytes)?; 
 

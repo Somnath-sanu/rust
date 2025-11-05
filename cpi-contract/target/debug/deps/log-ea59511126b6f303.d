@@ -1,0 +1,8 @@
+C:\Users\somna\Desktop\rust\cpi-contract\target\debug\deps\liblog-ea59511126b6f303.rmeta: C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.28\src\lib.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.28\src\macros.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.28\src\serde.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.28\src\__private_api.rs
+
+C:\Users\somna\Desktop\rust\cpi-contract\target\debug\deps\log-ea59511126b6f303.d: C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.28\src\lib.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.28\src\macros.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.28\src\serde.rs C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.28\src\__private_api.rs
+
+C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.28\src\lib.rs:
+C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.28\src\macros.rs:
+C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.28\src\serde.rs:
+C:\Users\somna\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\log-0.4.28\src\__private_api.rs:
