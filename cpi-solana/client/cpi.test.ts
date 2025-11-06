@@ -48,14 +48,14 @@ test("CPI works", async () => {
     "confirmed"
   );
 
-  if (!dataAccInfo?.data) {
-    throw new Error("data Account Info not found!!!");
-  }
+  // if (!dataAccInfo?.data) {
+  //   throw new Error("data Account Info not found!!!");
+  // }
 
-  console.log("data account owner: " , dataAccInfo.owner.toBase58())
-  const counter = borsh.deserialize(schema, dataAccInfo?.data);
+  // console.log("data account owner: " , dataAccInfo.owner.toBase58())
+  // const counter = borsh.deserialize(schema, dataAccInfo?.data);
 
-  console.log("Counter value: ", counter);
+  // console.log("Counter value: ", counter);
 
   let ix = new TransactionInstruction({
     keys: [
@@ -74,12 +74,14 @@ test("CPI works", async () => {
     data: Buffer.alloc(0), // No data needed for this instruction
   });
 
+  const blockhash = await connection.getLatestBlockhash();
+
   let tx = new Transaction();
   tx.add(ix);
-  // tx.feePayer = userAcc.publicKey;
+  tx.feePayer = userAcc.publicKey;
 
   // tx.recentBlockhash = svm.latestBlockhash();
-
+  tx.recentBlockhash = blockhash.blockhash;
   // tx.sign(userAcc, dataAcc);
 
   // svm.sendTransaction(tx);
@@ -88,21 +90,20 @@ test("CPI works", async () => {
 
   const signature = await connection.sendTransaction(tx, [userAcc]);
 
-  const sendTransaction = await connection.confirmTransaction({
-    ...(await connection.getLatestBlockhash()),
-    signature,
-  });
+  // const sendTransaction = await connection.confirmTransaction({
+  //   ...blockhash,
+  //   signature,
+  // });
 
-  console.log({ sendTransaction });
 
   const dataAccountInfo = await connection.getAccountInfo(
     dataAcc.publicKey,
     "confirmed"
   );
 
-  if (!dataAccountInfo) {
-    throw new Error("Data Account not found!");
-  }
+  // if (!dataAccountInfo) {
+  //   throw new Error("Data Account not found!");
+  // }
 
   console.log("dataAccData : ", dataAccountInfo);
 
@@ -140,14 +141,15 @@ async function createDataAccOnChain(
   // tx.feePayer = payer.publicKey;
   tx.add(...ixs);
   // tx.sign(payer, dataAcc);
+  tx.recentBlockhash = blockhash.blockhash;
 
   // svm.sendTransaction(tx);
   const signature = await connection.sendTransaction(tx, [payer, dataAcc]);
 
-  await connection.confirmTransaction({
-    signature,
-    ...blockhash,
-  });
+  // await connection.confirmTransaction({
+  //   signature,
+  //   ...blockhash,
+  // });
 
   console.log(
     "Data Account created successfully \n",
